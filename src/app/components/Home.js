@@ -10,7 +10,46 @@ export class Home extends React.Component {
             status: 0,
             homeLink: props.initialLinkName
         };
+        setTimeout(()=> {
+            this.setState({
+                status: 1
+            })
+        }, 3000)
+
+        console.log("constructor");
     }
+
+    componentWillMount(){
+        console.log("Component Will mount");
+    }
+
+    componentDidMount(){
+        console.log("Component did mount");
+    }    
+
+    componentWillReceiveProps(nextProps){
+        console.log("Component will receive props");
+    }    
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log("Component should update", nextProps, nextState);
+        // if(this.state.status === 1){
+        //     return false;
+        // }
+        return true;
+    }        
+
+    componentWillUpdate(nextProps, nextState){
+        console.log("Component will update", nextProps, nextState);
+    }  
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("Component did update", prevProps, prevState);
+    }    
+
+    componentWillUnmount(){
+        console.log("Component will unmount");
+    }       
 
     onMakeOlder() {
         this.setState({
